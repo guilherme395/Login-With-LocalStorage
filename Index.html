@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login with LocalStorage</title>
+    <link href="./Assets/bootstrap.css" rel="stylesheet">
+</head>
+
+<body>
+    <div class="container mt-5 ">
+
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#UserLogin">Login</button>
+
+        <div>Hello Bro !!!</div>
+    </div>
+
+    <div class="modal fade" id="UserLogin" tabindex="-1" aria-labelledby="UserLoginLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" id="UserLoginLabel">Fazer Login</h3>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <form method="POST" autocomplete="off" id="Form-User-Login">
+                        <div class="mb-3">
+                            <label for="Nome" class="col-form-label">Nome:</label>
+                            <input type=" text" class="form-control" id="Nome">
+                        </div>
+                        <div class="mb-3">
+                            <label for="Senha" class="col-form-label">Senha:</label>
+                            <input type="password" class="form-control" id="Senha">
+                        </div>
+
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-info">Entrar</button>
+                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sair</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script src="./App.js"></script>
+        <script src="./Assets/bootstrap.js"></script>
+</body>
+
+</html>
