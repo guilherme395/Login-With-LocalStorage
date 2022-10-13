@@ -1,18 +1,23 @@
-const UserLogin = document.getElementById("Form-User-Login");
+const CadUser = document.getElementById("Form-Cad-User");
 const MsgAlert = document.getElementById("MsgAlert");
 
-if (UserLogin) {
-    UserLogin.addEventListener("submit", (e) => {
+if (CadUser) {
+    CadUser.addEventListener("submit", (e) => {
         e.preventDefault();
-        if (document.getElementById("Nome").value && document.getElementById("Senha").value) {
-            setTimeout(() => {
-                MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
-                                            Usuario Cadastrado com sucesso !!!
+
+        let Nome = document.getElementById("Nome");
+        let Senha = document.getElementById("Senha");
+
+        if (Nome.value && Senha.value) {
+            MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
+                                            Cadastrado Usuario...
                                         </div>`;
-                setTimeout(() => {
-                    window.location.reload(1);
-                }, "3000")
-            }, "1 000")
+
+            let Users = JSON.parse(localStorage.getItem("Users") || "[]");
+            Users.push({ nomeCad: Nome.value, senhaCad: Senha.value });
+            localStorage.setItem("Users", JSON.stringify(Users));
+
+            setTimeout(() => { window.location.href = "./Login.html"; }, "3000");
         } else {
             MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
                                         Necessario Preencher todos os campos !!!
