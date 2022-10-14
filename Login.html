@@ -11,8 +11,7 @@
 
 <body>
     <center class="container mt-5 ">
-        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-            data-bs-target="#LoginUser">Entrar</button>
+        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#LoginUser">Entrar</button>
     </center>
 
     <div class="modal fade" id="LoginUser" tabindex="-1" aria-labelledby="LoginUserLabel" aria-hidden="true">
@@ -30,6 +29,10 @@
                             <input type="text" class="form-control" name="Nome" id="Nome">
                         </div>
                         <div class="mb-3">
+                            <label for="Email" class="col-form-label">Email:</label>
+                            <input type="email" class="form-control" name="Email" id="Email">
+                        </div>
+                        <div class="mb-3">
                             <label for="Senha" class="col-form-label">Senha:</label>
                             <input type="password" class="form-control" name="Senha" id="Senha">
                         </div>
@@ -45,6 +48,13 @@
     </div>
     <script src="./App.js"></script>
     <script src="./Assets/bootstrap.js"></script>
+
+    <script>
+        if (localStorage.getItem("token")) {
+            alert("Você ja está LOGADO, e será redirecionado para a HOME");
+            window.location.href = "Home.html";
+        }
+    </script>
 </body>
 
 </html>

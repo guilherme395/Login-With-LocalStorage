@@ -20,17 +20,29 @@
 <body>
     <center>
         <div class="mt-5">
-            <h1>Hello Word</h1>
             <span>
                 <div class="alert alert-success alert-dismissable">
+                    <h1 id="Logado"></h1>
                     <b class="alert-link">PARABENS!</b> Você Esta Logado!
                 </div>
             </span>
-            <button class="btn btn-danger" onclick="Logoff">Log Out</button>
+            <button class="btn btn-danger" id="BtnLogoff">Fazer Logoff</button>
         </div>
     </center>
     <script src="./App.js"></script>
     <script src="./Assets/bootstrap.js"></script>
+
+    <script>
+        let UserLogado = JSON.parse(localStorage.getItem("UserLogado"));
+        let Logado = document.getElementById("Logado");
+
+        Logado.innerHTML = `Ola ${UserLogado.nome} !!!`;
+
+        if (localStorage.getItem("token") == null) {
+            alert("É uma pena, você não está logado :(");
+            window.location.href = "Index.html";
+        }
+    </script>
 </body>
 
 </html>
