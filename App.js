@@ -10,8 +10,10 @@ if (CadUser) {
         let Senha = document.getElementById("Senha");
 
         if (Nome.value && Senha.value) {
-            MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
-                                        Sucesso: Cadastrando Usuario...
+            Nome.style.border = "1px dashed green";
+            Senha.style.border = "1px dashed green"
+            MsgAlert.innerHTML = `  <div class="alert alert-success alert-dismissable">
+                                        <b class="alert-link">SUCESSO!</b> Cadastrando Usuario...
                                     </div>`;
 
             let Users = JSON.parse(localStorage.getItem("Users") || "[]");
@@ -20,10 +22,12 @@ if (CadUser) {
 
             setTimeout(() => { window.location.href = "./Login.html"; }, "3000");
         } else {
-            MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
-                                        Erro: Necessario Preencher todos os campos !!!
+            Nome.style.border = "1px dashed red";
+            Senha.style.border = "1px dashed red";
+            MsgAlert.innerHTML = `  <div class="alert alert-danger alert-dismissable">
+                                        <b class="alert-link">Erro!</b> Por Favor Preencher os Campos!
                                     </div>`;
-        }
+        };
     });
 };
 
@@ -40,7 +44,7 @@ if (LoginUser) {
             senha: null
         }
 
-        if (Nome.value != null && Senha.value != null) {
+        if (Nome.value != "" && Senha.value != "") {
 
             Users = JSON.parse(localStorage.getItem("Users"));
             Users.forEach((User) => {
@@ -55,23 +59,26 @@ if (LoginUser) {
             if (Nome.value == UserValid.nome && Senha.value == UserValid.senha) {
                 let Token = Math.random().toString(16).substring(2);
                 console.log(Token);
-                MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
-                                            Sucesso: Usuario Logado...
+
+                Nome.style.border = "1px dashed green";
+                Senha.style.border = "1px dashed green"
+                MsgAlert.innerHTML = `  <div class="alert alert-success alert-dismissable">
+                                            <b class="alert-link">SUCESSO!</b> Você Esta Logado!
                                         </div>`;
                 setTimeout(() => { window.location.href = "Home.html"; }, "3000");
             } else {
-                Nome.style.border = "1px solid red";
-                Senha.style.border = "1px solid red";
-                MsgAlert.innerHTML = `  <div class='alert alert-warning' role='alert'>
-                                            Erro: Os Dados Informados Estão Incorretos...
+                Nome.style.border = "1px dashed red";
+                Senha.style.border = "1px dashed red";
+                MsgAlert.innerHTML = `  <div class="alert alert-warning alert-dismissable">
+                                            <b class="alert-link">ALERTA!</b> Campo Nome ou Senha Incorretos!
                                         </div>`;
-            }
+            };
         } else {
-            Nome.style.border = "1px solid red";
-            Senha.style.border = "1px solid red";
-            MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
-                                        Erro: Por Favor, Preencher Os Campos Nome e Senha...
+            Nome.style.border = "1px dashed red";
+            Senha.style.border = "1px dashed red";
+            MsgAlert.innerHTML = `  <div class="alert alert-danger alert-dismissable">
+                                        <b class="alert-link">Erro!</b> Por Favor Preencher os Campos!
                                     </div>`;
-        }
+        };
     });
 };
