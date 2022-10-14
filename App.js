@@ -36,10 +36,11 @@ if (LoginUser) {
         let Senha = document.getElementById("Senha");
 
         let UserValid = {
-            nome: "",
-            senha: ""
+            nome: null,
+            senha: null
         }
-        if (Nome.value != "" && Senha.value != "") {
+
+        if (Nome.value != null && Senha.value != null) {
 
             Users = JSON.parse(localStorage.getItem("Users"));
             Users.forEach((User) => {
@@ -52,14 +53,16 @@ if (LoginUser) {
             });
 
             if (Nome.value == UserValid.nome && Senha.value == UserValid.senha) {
+                let Token = Math.random().toString(16).substring(2);
+                console.log(Token);
                 MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
                                             Sucesso: Usuario Logado...
                                         </div>`;
-                setTimeout(() => { window.location.reload(1); }, "3000");
+                setTimeout(() => { window.location.href = "Home.html"; }, "3000");
             } else {
                 Nome.style.border = "1px solid red";
                 Senha.style.border = "1px solid red";
-                MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
+                MsgAlert.innerHTML = `  <div class='alert alert-warning' role='alert'>
                                             Erro: Os Dados Informados Estão Incorretos...
                                         </div>`;
             }
