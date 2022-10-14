@@ -1,4 +1,5 @@
 const CadUser = document.getElementById("Form-Cad-User");
+const LoginUser = document.getElementById("Form-Login-User");
 const MsgAlert = document.getElementById("MsgAlert");
 
 if (CadUser) {
@@ -10,8 +11,8 @@ if (CadUser) {
 
         if (Nome.value && Senha.value) {
             MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
-                                            Cadastrado Usuario...
-                                        </div>`;
+                                        Sucesso: Cadastrando Usuario...
+                                    </div>`;
 
             let Users = JSON.parse(localStorage.getItem("Users") || "[]");
             Users.push({ nomeCad: Nome.value, senhaCad: Senha.value });
@@ -20,7 +21,53 @@ if (CadUser) {
             setTimeout(() => { window.location.href = "./Login.html"; }, "3000");
         } else {
             MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
-                                        Necessario Preencher todos os campos !!!
+                                        Erro: Necessario Preencher todos os campos !!!
+                                    </div>`;
+        }
+    });
+};
+
+if (LoginUser) {
+    LoginUser.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        let Users = [];
+        let Nome = document.getElementById("Nome");
+        let Senha = document.getElementById("Senha");
+
+        let UserValid = {
+            nome: "",
+            senha: ""
+        }
+        if (Nome.value != "" && Senha.value != "") {
+
+            Users = JSON.parse(localStorage.getItem("Users"));
+            Users.forEach((User) => {
+                if (Nome.value == User.nomeCad && Senha.value == User.senhaCad) {
+                    UserValid = {
+                        nome: User.nomeCad,
+                        senha: User.senhaCad
+                    }
+                }
+            });
+
+            if (Nome.value == UserValid.nome && Senha.value == UserValid.senha) {
+                MsgAlert.innerHTML = `  <div class='alert alert-success' role='alert'>
+                                            Sucesso: Usuario Logado...
+                                        </div>`;
+                setTimeout(() => { window.location.reload(1); }, "3000");
+            } else {
+                Nome.style.border = "1px solid red";
+                Senha.style.border = "1px solid red";
+                MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
+                                            Erro: Os Dados Informados Estão Incorretos...
+                                        </div>`;
+            }
+        } else {
+            Nome.style.border = "1px solid red";
+            Senha.style.border = "1px solid red";
+            MsgAlert.innerHTML = `  <div class='alert alert-danger' role='alert'>
+                                        Erro: Por Favor, Preencher Os Campos Nome e Senha...
                                     </div>`;
         }
     });
