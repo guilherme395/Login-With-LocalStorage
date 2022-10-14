@@ -57,15 +57,15 @@ if (LoginUser) {
             });
 
             if (Nome.value == UserValid.nome && Senha.value == UserValid.senha) {
-                let Token = Math.random().toString(16).substring(2);
-                console.log(Token);
+                let token = Math.random().toString(16).substring(2) + Math.random().toString(16).substring(2);
+                localStorage.setItem("token", token);
 
                 Nome.style.border = "1px dashed green";
                 Senha.style.border = "1px dashed green"
                 MsgAlert.innerHTML = `  <div class="alert alert-success alert-dismissable">
                                             <b class="alert-link">SUCESSO!</b> Você Esta Logado!
                                         </div>`;
-                setTimeout(() => { window.location.href = "Home.html"; }, "3000");
+                // setTimeout(() => { window.location.href = "Home.html"; }, "3000");
             } else {
                 Nome.style.border = "1px dashed red";
                 Senha.style.border = "1px dashed red";
@@ -82,3 +82,7 @@ if (LoginUser) {
         };
     });
 };
+
+function Logoff(){
+    
+}
