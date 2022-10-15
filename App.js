@@ -103,3 +103,8 @@ if (BtnLogoff) {
         window.location.href = "Login.html";
     });
 }
+setTimeout(() => {
+    localStorage.removeItem("token");
+    localStorage.removeItem("UserLogado");
+    window.location.href = "Login.html";
+}, "300000");
