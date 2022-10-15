@@ -32,22 +32,24 @@
                 </div>
                 <div class="modal-body">
                     <form method="POST" autocomplete="off" id="Form-Cad-User">
-                        <span id="MsgAlert"></span>
-                        <div class="mb-3">
-                            <label for="Nome" class="col-form-label">Nome:</label>
-                            <input type="text" class="form-control" name="Nome" id="Nome">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Email" class="col-form-label">Email:</label>
-                            <input type="email" class="form-control" name="Email" id="Email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="Senha" class="col-form-label">Senha:</label>
-                            <input type="password" class="form-control" name="Senha" id="Senha">
-                        </div>
-                        <div class="modal-footer">
-                            <button type="submit" class="btn btn-info">Cadastrar</button>
-                            <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sair</button>
+                        <div class="row">
+                            <span id="MsgAlert"></span>
+                            <div class="mb-3">
+                                <label for="Nome" class="col-form-label">Nome:</label>
+                                <input type="text" class="form-control" name="Nome" id="Nome">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="Email" class="col-form-label">Email:</label>
+                                <input type="email" class="form-control" name="Email" id="Email">
+                            </div>
+                            <div class="mb-3 col-sm-6">
+                                <label for="Senha" class="col-form-label">Senha:</label>
+                                <input type="password" class="form-control" name="Senha" id="Senha">
+                            </div>
+                            <div class="modal-footer">
+                                <button type="submit" class="btn btn-info">Cadastrar</button>
+                                <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Sair</button>
+                            </div>
                         </div>
                     </form>
                 </div>
@@ -59,7 +61,6 @@
 
     <script>
         if (localStorage.getItem("token")) {
-            alert("Você ja está LOGADO, e será redirecionado para a HOME");
             window.location.href = "Home.html";
         }
     </script>

@@ -31,7 +31,7 @@ if (CadUser) {
             Nome.style.border = "1px dashed red";
             Senha.style.border = "1px dashed red";
             MsgAlert.innerHTML = `  <div class="alert alert-danger alert-dismissable">
-                                        <b class="alert-link">Erro!</b> Por Favor Preencher os Campos!
+                                        <b class="alert-link">Erro!</b> Por Favor Preencher Todos os Campos!
                                     </div>`;
         };
     });
@@ -83,7 +83,7 @@ if (LoginUser) {
                 Email.style.border = "1px dashed red";
                 Senha.style.border = "1px dashed red";
                 MsgAlert.innerHTML = `  <div class="alert alert-warning alert-dismissable">
-                                            <b class="alert-link">ALERTA!</b> Campo Nome ou Senha Incorretos!
+                                            <b class="alert-link">ALERTA!</b> Os Valores Estão Incorretos!
                                         </div>`;
             };
         } else {
@@ -91,16 +91,15 @@ if (LoginUser) {
             Email.style.border = "1px dashed red";
             Senha.style.border = "1px dashed red";
             MsgAlert.innerHTML = `  <div class="alert alert-danger alert-dismissable">
-                                        <b class="alert-link">Erro!</b> Por Favor Preencher os Campos!
+                                        <b class="alert-link">Erro!</b> Por Favor Preencher Todos os Campos!
                                     </div>`;
         };
     });
 };
 if (BtnLogoff) {
     BtnLogoff.addEventListener("click", () => {
-        alert("Tudo bem, Você quer sair certo?");
         localStorage.removeItem("token");
-        localStorage.removeItem("UserLogado ");
+        localStorage.removeItem("UserLogado");
         window.location.href = "Login.html";
     });
 }
